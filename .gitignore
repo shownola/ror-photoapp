@@ -18,6 +18,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore private notes file.
+/Notes.txt
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
