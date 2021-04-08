@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/plans', to: 'welcome#plans'
+
+  resources :charges
 end
