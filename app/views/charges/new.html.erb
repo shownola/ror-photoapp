@@ -1,32 +1,85 @@
-<div class="container">
-  <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buy cool new product</title>
+    <link rel="stylesheet" href="style.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
+  <body>
+    <section>
+      <div class="row">
+        <div class="col-md-12">
+      <div class="charge-container">
+        <div class="product pt-5">
+          <%= image_tag 'photography.jpg', class: 'charge-photo ml-5 pt-5 mt-5', alt: 'camera image' %>
+          <div class="description">
+            <h2>Basic Plan</h2>
+            <h3>Pay with card</h3>
+            <h5>$10.00</h5>
+
+          <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+                <% end %>
+
+              <label class="amount">
+                <span>Amount: $10.00</span>
+              </label>
+            </article>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.application.credentials[:stripe][:publishable_key] %>"
+                  data-description="Basic Plan"
+                  data-amount="1000"
+                  data-email="<%= current_user.email %>"
+                  data-locale="auto">
+
+          </script>
+          </div>
         <% end %>
 
-      <label class="amount">
-        <span>Amount: $10.00</span>
-      </label>
-    </article>
+
+        <div class="product pt-5">
+          <%= image_tag 'photography.jpg', class: 'charge-photo ml-5 pt-5 mt-5', alt: 'camera image' %>
+          <div class="description">
+            <h2>Basic Plan</h2>
+            <h3>Pay with card</h3>
+            <h5>$10.00</h5>
+
+          <%= form_tag charges_path do %>
+            <article>
+              <% if flash[:error].present? %>
+                <div id="error_explanation">
+                  <p><%= flash[:error] %></p>
+                </div>
+                <% end %>
+
+              <label class="amount">
+                <span>Amount: $10.00</span>
+              </label>
+            </article>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.application.credentials[:stripe][:publishable_key] %>"
+                  data-description="Basic Plan"
+                  data-amount="1000"
+                  data-email="<%= current_user.email %>"
+                  data-locale="auto">
+
+          </script>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+    </section>
 
 
+  </body>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.application.credentials[:stripe][:publishable_key] %>"
-            data-description="A month's subscription"
-            data-amount="1000"
-            data-email="<%= current_user.email %>"
-            data-locale="auto">
-
-    </script>
-<% end %>
-
-</div>
-
-
-<!--  -->
-<!-- data-key="<%#= Rails.application.credentials[:stripe][:publishable_key] %>" -->
-<!-- data-key="<%#=Rails.configuration.stripe[:publishable_key]%>" -->
+</html>

@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ $dark: #415053;
+ $grey: #C3C6C7;
+ $dark-blue: #719CBC;
+ $blue: #9AB8CB;
+
+
+.charge-container {
+  margin-left: 3rem;
+}
+.description {
+  color: #fff;
+  margin-left: 3rem;
+}
+.amount {
+  color: #fff;
+}
+
+.login,
+.sign-up {
+  color: $grey;
+}
+.btn.btn-login {
+  background-color: $dark-blue;
+}
+.login a,
+.sign-up a {
+  color: $dark-blue;
+}
+.notice {
+  color: $grey;
+}
