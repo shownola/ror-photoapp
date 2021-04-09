@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,  :trackable,
          :recoverable, :rememberable, :validatable
 
+  has_many :messages, dependent: :destroy
+  has_many_attached :images
+
   # has_one :payment
   # accepts_nested_attributes_for :payment
 end

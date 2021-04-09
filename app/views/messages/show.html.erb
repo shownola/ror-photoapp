@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container mt-5 pt-5">
+
+<section class="projects-section bg-light" id="projects">
+  <div class="container">
+      <!-- Featured Project Row-->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+          <div class="col-xl-8 col-lg-7">
+            <%= image_tag @message.image, class: 'img-fluid mb-3 mb-lg-0' %>
+
+          </div>
+          <div class="col-xl-4 col-lg-5">
+              <div class="featured-text text-center text-lg-left">
+                  <h4><%= @message.title %></h4>
+                  <p class="text-black-50 mb-0"><%= @message.content %></p>
+              </div>
+          </div>
+      </div>
+    </div>
+</section>
+
+<%= link_to 'Edit', edit_message_path(@message), class: 'link' %> |
+<%= link_to 'Back', messages_path, class: 'link' %>
+</div>
+<%#= image_tag(@message.image), class: 'img-fluid mb-3 mb-lg-0' %>

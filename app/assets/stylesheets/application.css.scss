@@ -37,6 +37,11 @@
 }
 .btn.btn-login {
   background-color: $dark-blue;
+  color: #fff;
+  &:hover {
+    background-color: $blue;
+    color: $dark;
+  }
 }
 .login a,
 .sign-up a {
@@ -44,4 +49,20 @@
 }
 .notice {
   color: $grey;
+}
+
+.message-form {
+  color: $grey;
+}
+.form-link {
+  color: $dark-blue;
+}
+
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+.idx-img {
+  width: 100%;
 }
