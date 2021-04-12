@@ -1,37 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <h1 class="display-3 text-center">Album</h1>
 
 
-  <!-- Project One Row-->
-  <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-    <% @messages.each do |message| %>
-      <div class="col-md-6">
-        <%= link_to image_tag(message.image), class: 'img-fluid idx-img' %>
-      </div>
-      <div class="col-md-6">
-        <div class="bg-black text-center h-100 project">
-          <div class="d-flex h-100">
-            <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white"><%= message.title %></h4>
-                <p class="mb-0 text-white-50"><%= message.content %></p>
-                <hr class="d-none d-lg-block mb-0 ml-0" />
-            </div>
-          </div>
+
+  <section class="bg-secondary py-4">
+    <div class="container-fluid">
+      <div class="row text-white text-center">
+        <div class="col m-4">
+          <h1 class="display-4 mb-4">Album</h1>
+          <div class="underline mb-4"></div>
+          <p class="lead">some text can go here!</p>
         </div>
       </div>
 
-<% end %>
-</div>
 
+      <div class="row">
+        <% @messages.each do |message| %>
+        <div class="col-md-4 col-sm-6 my-5">
+          <div class="card border-0 card-shadow">
+            <%= link_to image_tag(message.main_image.variant(resize: '300x300')), class: 'card-img' %>
+            <div class="card-img-overlay">
+              <h5><%= link_to message.title, message_path(message), class: 'text-white text-uppercase font-weight-bold p-2 heading' %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
 
+    </div>
 
-
-
+  </div>
+  </section>
 
 
 <br>
 
 <%= link_to 'New Message', new_message_path %>
-</div>
